@@ -13,7 +13,6 @@
     "markdown-it-mathjax3": "^4.3.2",
     "markdown-it-task-lists": "^2.1.1",
     "md-to-pdf": "^5.2.4",
-    "mdpdf": "^3.0.4",
     "mermaid": "^11.4.1",
     "path": "^0.12.7",
     "playwright-chromium": "^1.51.0",
@@ -25,8 +24,8 @@
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview",
-    "pdf:lin": "for f in supports/*.md;       do md-to-pdf --launch-options '{\"args\": [\"--no-sandbox\"]}' --document-title \"$(basename \"${f}\" .md)\" --config-file ./.vitepress/pdf-config.js \"${f}\" ; done && mv supports/*.pdf .vitepress/dist/supports/",
-    "pdf:win": "for /r %F in (supports\\*.md) do md-to-pdf                                                   --document-title \"%~nF\"                     --config-file .\\.vitepress\\pdf-config.js \"%F\"        && mv supports/*.pdf .vitepress/dist/supports/",
+    "pdf:lin": "for f in supports/*.md;       do md-to-pdf --launch-options '{\"args\": [\"--no-sandbox\"]}' --document-title \"$(basename \"${f}\" .md)\" --config-file ./.vitepress/pdf-config.js \"${f}\" ; done && cp supports/*.pdf .vitepress/dist/supports/",
+    "pdf:win": "for /r %F in (supports\\*.md) do md-to-pdf                                                   --document-title \"%~nF\"                     --config-file .\\.vitepress\\pdf-config.js \"%F\"        && cp supports/*.pdf .vitepress/dist/supports/",
     "slidev:lin": "for f in slides/*.md;       do slidev build \"${f}\" --out \"../.vitepress/dist/slides/$(basename \"${f}\" .md)\" --base \"/c-335-mobile/slides/$(basename \"${f}\" .md)/\" ; done",
     "slidev:win": "for /r %F in (slides\\*.md) do slidev build \"%F\"   --out \"..\\.vitepress\\dist\\slides\\%~nF\"                 --base \"/c-335-mobile/slides/%~nF/\""
   },
