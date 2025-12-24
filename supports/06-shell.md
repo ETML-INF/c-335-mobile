@@ -344,7 +344,7 @@ des problèmes de navigation et d'expérience utilisateur.
 
 ## Points Importants à Retenir
 
-1. **Shell vs Navigation Classique** : Shell offre une navigation plus moderne et simplifiée par rapport à la navigation par `NavigationPage` classique.
+1. **Shell vs Navigation Classique** : Shell offre une navigation plus moderne et simplifiée par rapport à la navigation par `NavigationPage` classique. Les deux peuvent être utilisées conjointement.
 
 2. **Binding dans XAML** : Le XAML utilise un système de binding puissant qui lie les propriétés des contrôles à celles du ViewModel.
 

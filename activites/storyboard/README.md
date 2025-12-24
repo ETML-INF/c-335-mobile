@@ -21,13 +21,13 @@ Un storyboard est une maquette de l’application contenant
 2. Application
 ![ux-storyboard.avif](ux-storyboard.avif)
 
-#### Importance de cette étape 🚀
+#### Importance de cette étape
 Cette partie d’analyse est **primordiale** pour éviter de perdre du temps sur des éléments non essentiels
 ainsi que réfléchir à différents détails (idéalement avec le client)...
 
 ## Livrable
 Un document PDF de qualité **professionnelle** :
-- 🧪 Contenu relu et comparé au cahier des charges
-- ⚠  Attention à l’orthographe
-- ℹ  Renseigner les entêtes du fichier
-- 📛 Nommer le fichier avec pertinence (par exemple `luke-flashquizz-storyboard-v1.pdf`)
+- Contenu relu et comparé au cahier des charges
+- Attention à l’orthographe
+- Renseigner les entêtes du fichier
+- Nommer le fichier avec pertinence (par exemple `luke-flashquizz-storyboard-v1.pdf`)

@@ -15,7 +15,32 @@ public App()
     MainPage = new AppShell();
 }
 
-// Dans AppShell.xaml.cs
+```
+### En XAML
+
+``` xml
+<Shell
+    x:Class="maui_flashcard.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:MauiFlashcard.Pages"
+    Title="Flashcards">
+
+    <TabBar>
+        <ShellContent
+            Title="Détail"
+            Icon="home.png"
+            ContentTemplate="{DataTemplate pages:DetailPage}"
+            Route="DetailPage" />
+		</ShellContent>
+	</TabBar>
+</Shell>
+			
+```
+
+### En code
+```csharp
+// Dans AppShell.xaml.cs 
 public AppShell()
 {
     InitializeComponent();
@@ -29,7 +54,7 @@ await Shell.Current.GoToAsync(nameof(DetailPage));
 await Shell.Current.GoToAsync("..");
 ```
 
-## 2. Navigation avec paramètres
+## 2. Navigation avec paramètres (version simpliste)
 
 ```csharp
 // Enregistrement de la route
@@ -87,7 +112,7 @@ await Navigation.PushAsync(secondPage, false);
 await secondPage.FadeTo(1, 500);
 ```
 
-## 6. Navigation tabulaire (TabBar)
+## 6. Navigation tabulaire (TabBar) via Shell
 
 ```xml
 <!-- Dans AppShell.xaml -->
@@ -101,7 +126,7 @@ await secondPage.FadeTo(1, 500);
 </TabBar>
 ```
 
-## 7. Navigation programmée vers un onglet
+## 7. Navigation vers une page du Shell
 
 ```csharp
 // Naviguer vers un onglet spécifique

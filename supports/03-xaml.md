@@ -114,7 +114,7 @@ Les namespaces définissent les ensembles d'éléments disponibles :
 ```
 
 ## Exemples XAML courants
-
+	
 | Description                  | XAML                                                                                                                                                                                                                                                                                    | Rendu                                   |
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
 | Afficher un bouton "quitter" | `<Button Text="quitter" />`                                                                                                                                                                                                                                                             | [Bouton avec texte "quitter"]           |
@@ -134,4 +134,4 @@ Les namespaces définissent les ensembles d'éléments disponibles :
 1. Combien d'attributs y a-t-il dans l'exemple d'ingrédients ?
 2. Combien d'éléments contient la balise `<ingredients>` ?
 3. Quel est le corps de la balise `<temps>` ?
-4. Créez une interface simple avec un bouton et une étiquette.
+4. Créer une interface simple avec un bouton et une étiquette.

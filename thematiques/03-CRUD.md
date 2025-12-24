@@ -1,4 +1,4 @@
-# CRUD 📝
+# CRUD
 
 ![crud.png](assets/crud.png)
 
@@ -6,16 +6,16 @@
 
 ### Supports
 
-- [MVVM](../supports/07-mvvm)
-- [CRUD](../supports/08-crud)
+- [CRUD](../supports/08-crud) 
 - [SQLITE](../supports/09-db.md)
+- [MVVM](../supports/07-mvvm)
 
 ### Références
 - [EntityFramework (Persistence)](https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli)
 
 ### Slides
-- [MVVM](https://eduvaud-my.sharepoint.com/:p:/g/personal/jonathan_melly_eduvaud_ch/ET-n9RZYpktFskQ8Il9xQv4BsRxezaKL-ILDp--AJ0BukA?e=z4tA27)
 - [CRUD](https://eduvaud-my.sharepoint.com/:p:/g/personal/jonathan_melly_eduvaud_ch/ERG7KDRhoelFngBf9bRbnaEBxp9S0o-PUCQsgBMa3XQ8Yg?e=qPaylv)
+- [MVVM](https://eduvaud-my.sharepoint.com/:p:/g/personal/jonathan_melly_eduvaud_ch/ET-n9RZYpktFskQ8Il9xQv4BsRxezaKL-ILDp--AJ0BukA?e=z4tA27)
 - [SQLite](https://eduvaud-my.sharepoint.com/:p:/g/personal/jonathan_melly_eduvaud_ch/EfOweX5hs5tHjqPIIcnxFxoBBqo_BYbszqYmy1xFYpGOSw?e=yvZ0gz)
 
 ## Synthèse
