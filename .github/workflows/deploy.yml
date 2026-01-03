@@ -37,15 +37,6 @@ jobs:
         with:
           node-version: 20
           cache: pnpm #
-
-      - name: Cache Puppeteer browsers
-        uses: actions/cache@v4
-        with:
-          path: ${{ github.workspace }}/.cache/puppeteer
-          key: ${{ runner.os }}-puppeteer-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-puppeteer-
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
@@ -56,14 +47,15 @@ jobs:
 
       - name: Install Chrome for Puppeteer
         run: |
-          npx puppeteer browsers install chrome
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
         env:
-          PUPPETEER_CACHE_DIR: ${{ github.workspace }}/.cache/puppeteer
+          DEBIAN_FRONTEND: noninteractive
 
       - name: Generate pdfs
         run: pnpm pdf:lin
         env:
-          PUPPETEER_CACHE_DIR: ${{ github.workspace }}/.cache/puppeteer
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
         continue-on-error: true
 
       - name: Generate slides
