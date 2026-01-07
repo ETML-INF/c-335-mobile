@@ -19,9 +19,9 @@ en utilisant les animations...
 - [MAUI.net >> animations](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/animation/basic)
 
 ## Activités
-- [ ] [Animation basique](https://labs.section-inf.ch/codelabs/mobile-06-animation/index.html?index=..%2F..index#0)
+- [ ] [Animation basique](https://labs.section-inf.ch/codelabs/mobile-06a-animation/index.html?index=..%2F..index)
 - [ ] [Flip](../activites/flip/README.md)
-- [ ] [Accelero](https://labs.section-inf.ch/codelabs/mobile-07-sensor/index.html?index=..%2F..index#0)
+- [ ] [Accelero](https://labs.section-inf.ch/codelabs/mobile-07a-sensor/index.html?index=..%2F..index#0)
 
 ## Résultat attendu
 - Animation de la carte dans le mode apprentissage (flashcard)
