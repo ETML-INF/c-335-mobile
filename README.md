@@ -23,7 +23,7 @@ features:
     details: VSCommunity, Figma, Git
 ---
 
-
 ![roadmap](./roadmap.png)
 
+[https://etml-inf.github.io/c-335-mobile/](https://etml-inf.github.io/c-335-mobile/)
 
