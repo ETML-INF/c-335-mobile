@@ -5,7 +5,7 @@
 Développement pas à pas d’une application de type "flashcards" (aka quizlet)
 
 #### Cahier des charges
-[CDC Flashquizz](activites/storyboard/ICT-335-CDC-PROJ.pdf)
+[CDC Flashquizz](../activites/storyboard/ICT-335-CDC-PROJ.pdf)
 
 ### Entretien professionnel
 
