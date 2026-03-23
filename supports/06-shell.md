@@ -159,8 +159,96 @@ public partial class DetailsPage : ContentPage
 }
 ```
 
+## Hiérarchie et Abréviations Shell
+
+MAUI Shell supporte des **abréviations** : les éléments imbriqués sont automatiquement enveloppés dans leurs parents.
+
+| Ce que vous écrivez                          | Équivalent complet                |
+|----------------------------------------------|-----------------------------------|
+| `ShellContent` directement sous `Shell`      | `FlyoutItem > Tab > ShellContent` |
+| `Tab` directement sous `Shell`               | `FlyoutItem > Tab`                |
+| `ShellContent` directement sous `FlyoutItem` | `FlyoutItem > Tab > ShellContent` |
+
+Cela signifie que **tout `Tab` ou `ShellContent` placé directement sous `Shell` apparaît automatiquement dans le Flyout** (menu latéral), comme un `FlyoutItem`.
+
+### Scénario 1 — Page racine accessible depuis le Flyout (avec onglets)
+
+Pour avoir une **page racine** qui est à la fois une entrée du Flyout ET qui affiche des onglets,
+placez des `Tab` directement sous `Shell` (ou utilisez un `FlyoutItem` explicite) :
+
+```xml
+<!-- Forme abrégée : Tab directement sous Shell -->
+<Shell Shell.FlyoutBehavior="Flyout">
+
+    <!-- Entrée Flyout simple (sans onglets) -->
+    <Tab Title="Accueil" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:AccueilPage}" />
+    </Tab>
+
+    <!-- Entrée Flyout avec plusieurs onglets -->
+    <Tab Title="Catalogue" Icon="catalog.png">
+        <ShellContent Title="Produits"    ContentTemplate="{DataTemplate views:ProduitsPage}" />
+        <ShellContent Title="Catégories"  ContentTemplate="{DataTemplate views:CategoriesPage}" />
+    </Tab>
+
+</Shell>
+```
+
+Équivalent explicite (identique au précédent) :
+
+```xml
+<Shell Shell.FlyoutBehavior="Flyout">
+
+    <FlyoutItem Title="Accueil" Icon="home.png">
+        <Tab Title="Accueil">
+            <ShellContent ContentTemplate="{DataTemplate views:AccueilPage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Catalogue" Icon="catalog.png">
+        <Tab Title="Produits">
+            <ShellContent ContentTemplate="{DataTemplate views:ProduitsPage}" />
+        </Tab>
+        <Tab Title="Catégories">
+            <ShellContent ContentTemplate="{DataTemplate views:CategoriesPage}" />
+        </Tab>
+    </FlyoutItem>
+
+</Shell>
+```
+
+> Les onglets apparaissent **en bas** uniquement lorsque l'entrée Flyout correspondante est active.
+
+### Scénario 2 — TabBar racine (sans entrée Flyout)
+
+`TabBar` est un cas particulier : ses onglets sont **toujours visibles en bas** et n'apparaissent **pas** dans le Flyout.
+
+```xml
+<Shell Shell.FlyoutBehavior="Disabled">
+
+    <!-- Ces onglets sont toujours visibles, jamais dans le Flyout -->
+    <TabBar>
+        <Tab Title="Accueil"       Icon="home.png">
+            <ShellContent ContentTemplate="{DataTemplate views:AccueilPage}" />
+        </Tab>
+        <Tab Title="Notifications" Icon="bell.png">
+            <ShellContent ContentTemplate="{DataTemplate views:NotificationsPage}" />
+        </Tab>
+    </TabBar>
+
+</Shell>
+```
+
+### Récapitulatif : où apparaissent les éléments ?
+
+| Élément                        | Dans le Flyout                    | Onglets en bas                       |
+|--------------------------------|-----------------------------------|--------------------------------------|
+| `FlyoutItem`                   | Oui                               | Si contient plusieurs `Tab`          |
+| `Tab` directement sous `Shell` | Oui (abréviation de `FlyoutItem`) | Si contient plusieurs `ShellContent` |
+| `TabBar`                       | **Non**                           | Toujours                             |
+
 ## Combinaison Flyout et TabBar
-On peut combiner flyout et tab, toutefois il y a plusieurs éléments à considérer pour éviter 
+On peut combiner flyout et tab, toutefois il y a plusieurs éléments à considérer pour éviter
 des problèmes de navigation et d'expérience utilisateur.
 
 ### Structure possible
