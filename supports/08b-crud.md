@@ -80,9 +80,10 @@ using CardsApp.Models;
 
 namespace CardsApp.Services
 {
-    public static CardService instance = new CardService();
     public class CardService
     {
+        public static CardService Instance { get; } = new CardService();
+
         // Collection en mémoire RAM pour stocker les cartes
         private List<Card> _cards = new List<Card>();
 
@@ -333,7 +334,7 @@ L'interface utilisateur est définie en XAML. Nous utilisons une référence nom
                             </SwipeItems>
                         </SwipeView.RightItems>
 
-                        <Frame Margin="0,5" Padding="10">
+                        <Border Margin="0,5" Padding="10" Stroke="LightGray" StrokeThickness="1">
                             <VerticalStackLayout>
                                 <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold"/>
                                 <Label Text="{Binding Content}" Margin="0,5,0,0"/>
@@ -342,7 +343,7 @@ L'interface utilisateur est définie en XAML. Nous utilisons une référence nom
                                        TextColor="Gray"
                                        Margin="0,5,0,0"/>
                             </VerticalStackLayout>
-                        </Frame>
+                        </Border>
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

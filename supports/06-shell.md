@@ -409,20 +409,20 @@ des problèmes de navigation et d'expérience utilisateur.
             
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Margin="10" Padding="15" BorderColor="LightGray">
+                    <Border Margin="10" Padding="15" Stroke="LightGray" StrokeThickness="1">
                         <Grid ColumnDefinitions="Auto,*,Auto">
-                            <Image Grid.Column="0" Source="{Binding ImageUrl}" 
+                            <Image Grid.Column="0" Source="{Binding ImageUrl}"
                                    HeightRequest="60" WidthRequest="60" />
-                            
+
                             <VerticalStackLayout Grid.Column="1" Margin="10,0">
                                 <Label Text="{Binding Name}" FontSize="16" FontAttributes="Bold" />
                                 <Label Text="{Binding Description}" FontSize="14" TextColor="Gray" />
                             </VerticalStackLayout>
-                            
-                            <Label Grid.Column="2" Text="{Binding Price, StringFormat='{0:C}'}" 
+
+                            <Label Grid.Column="2" Text="{Binding Price, StringFormat='{0:C}'}"
                                    FontSize="18" TextColor="DarkGreen" VerticalOptions="Center" />
                         </Grid>
-                    </Frame>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

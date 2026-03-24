@@ -175,7 +175,7 @@ public partial class RegisterPage : ContentPage
         if (_isNameValid)
         {
             txtUsername.BackgroundColor = Colors.LightGreen;
-            lablStatus.Text = "Nom valide ✓";
+            lblStatus.Text = "Nom valide";
         }
         else
         {
@@ -192,11 +192,11 @@ public partial class RegisterPage : ContentPage
         
         if (_isEmailValid)
         {
-            Email.BackgroundColor = Colors.LightGreen;
+            txtEmail.BackgroundColor = Colors.LightGreen;
         }
         else
         {
-            Email.BackgroundColor = Colors.LightPink;
+            txtEmail.BackgroundColor = Colors.LightPink;
         }
         
         CheckForm();
@@ -225,7 +225,7 @@ public partial class RegisterPage : ContentPage
         
         if (formulaireValide)
         {
-            StatutLabel.Text = "Formulaire complet ✓";
+            lblStatus.Text = "Formulaire complet";
         }
     }
 
@@ -233,7 +233,7 @@ public partial class RegisterPage : ContentPage
     {
         bool confirmation = await DisplayAlert(
             "Confirmation", 
-            $"Inscrire {txtUsername.Text} avec {Email.Text} ?", 
+            $"Inscrire {txtUsername.Text} avec {txtEmail.Text} ?",
             "Oui", "Non"
         );
 
@@ -249,8 +249,8 @@ public partial class RegisterPage : ContentPage
             
             // Réinitialiser le formulaire
             txtUsername.Text = "";
-            Email.Text = "";
-            ConditionsAcceptees.IsChecked = false;
+            txtEmail.Text = "";
+            chkConditionsAccepted.IsChecked = false;
             chkNewsletter.IsChecked = false;
         }
     }

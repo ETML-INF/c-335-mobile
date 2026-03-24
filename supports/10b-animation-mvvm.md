@@ -188,7 +188,6 @@ namespace MauiAnimationDemo.ViewModels
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:s="clr-namespace:System;assembly=netstandard"
              xmlns:viewmodels="clr-namespace:MauiAnimationDemo.ViewModels"
              x:Class="MauiAnimationDemo.Views.AnimatePage"
              Title="Animations MAUI avec MVVM">
@@ -218,12 +217,12 @@ namespace MauiAnimationDemo.ViewModels
             <HorizontalStackLayout HorizontalOptions="Center" Margin="0,25,0,0">
                 <Button Text="&lt;&lt;" Command="{Binding MoveBoxCommand}">
                     <Button.CommandParameter>
-                        <s:Int32>-1</s:Int32>
+                        <x:Int32>-1</x:Int32>
                     </Button.CommandParameter>
                 </Button>
                 <Button Text=">>" Margin="10,0,0,0" Command="{Binding MoveBoxCommand}">
                     <Button.CommandParameter>
-                        <s:Int32>+1</s:Int32>
+                        <x:Int32>+1</x:Int32>
                     </Button.CommandParameter>
                 </Button>
             </HorizontalStackLayout>

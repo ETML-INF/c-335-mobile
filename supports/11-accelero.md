@@ -262,13 +262,13 @@ namespace MauiAccelerometerDemo.ViewModels
                Grid.Row="1" Grid.ColumnSpan="2"
                HorizontalOptions="Center"/>
 
-        <Frame Grid.Row="2" Grid.ColumnSpan="2" Padding="10" Margin="0,10">
+        <Border Grid.Row="2" Grid.ColumnSpan="2" Padding="10" Margin="0,10" Stroke="LightGray" StrokeThickness="1">
             <VerticalStackLayout Spacing="10">
                 <Label Text="{Binding XValue, StringFormat='X: {0:F2}'}"/>
                 <Label Text="{Binding YValue, StringFormat='Y: {0:F2}'}"/>
                 <Label Text="{Binding ZValue, StringFormat='Z: {0:F2}'}"/>
             </VerticalStackLayout>
-        </Frame>
+        </Border>
 
         <Button Text="Démarrer"
                 Command="{Binding StartMonitoringCommand}"
@@ -281,9 +281,9 @@ namespace MauiAccelerometerDemo.ViewModels
                 HorizontalOptions="Fill"/>
 
         <!-- Représentation visuelle de l'orientation -->
-        <Frame Grid.Row="4" Grid.ColumnSpan="2" HeightRequest="200" Padding="0" Margin="0,20">
+        <Border Grid.Row="4" Grid.ColumnSpan="2" HeightRequest="200" Padding="0" Margin="0,20" Stroke="LightGray" StrokeThickness="1">
             <GraphicsView x:Name="OrientationGraphics"/>
-        </Frame>
+        </Border>
     </Grid>
 </ContentPage>
 ```
