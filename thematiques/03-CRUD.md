@@ -11,8 +11,12 @@ La partie MVVM/EF est donnée à titre informatif et optionnel.
 #### Supports
 - [CRUD](../supports/08a-crud.md)
 
+#### Slides
+- [CRUD](https://etml-inf.github.io/c-335-mobile/slides/08a-crud/)
+
 ### Activités
 - [Tutoriel CRUD](https://labs.section-inf.ch/codelabs/mobile-05a-crud/index.html?index=..%2F..index#0)
+- [Filter](https://labs.section-inf.ch/codelabs/mobile-05b-filter/index.html?index=..%2F..index#0)
 
 ## Version MVVM/EF (avancé, optionnel)
 <details>
