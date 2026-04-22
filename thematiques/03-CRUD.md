@@ -14,6 +14,9 @@ La partie MVVM/EF est donnée à titre informatif et optionnel.
 #### Slides
 - [CRUD](https://etml-inf.github.io/c-335-mobile/slides/08a-crud/)
 
+#### Kahoot
+- [crud extended](https://create.kahoot.it/share/crud-extended/42046993-70f7-4f9a-afd7-026e233796ed)
+
 ### Activités
 - [Tutoriel CRUD](https://labs.section-inf.ch/codelabs/mobile-05a-crud/index.html?index=..%2F..index#0)
 - [Filter](https://labs.section-inf.ch/codelabs/mobile-05b-filter/index.html?index=..%2F..index#0)
