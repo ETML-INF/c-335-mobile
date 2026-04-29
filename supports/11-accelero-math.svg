@@ -1,0 +1,131 @@
+<svg width="900" height="950" xmlns="http://www.w3.org/2000/svg">
+  <!-- Styles -->
+  <style>
+    .axis { stroke: #333; stroke-width: 2; }
+    .curve-pos { fill: none; stroke: #2563eb; stroke-width: 3; }
+    .curve-vel { fill: none; stroke: #16a34a; stroke-width: 3; }
+    .curve-acc { fill: none; stroke: #dc2626; stroke-width: 3; }
+    .label { font-family: Arial, sans-serif; font-size: 13px; fill: #333; }
+    .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #111; }
+    .axis-label { font-family: Arial, sans-serif; font-size: 13px; fill: #555; font-style: italic; }
+    .vector-line { stroke: #8b5cf6; stroke-width: 4; marker-end: url(#arrowhead); }
+    .vector-label { font-family: Arial, sans-serif; font-size: 15px; fill: #8b5cf6; font-weight: bold; }
+    .point-marker { fill: #dc2626; stroke: #fff; stroke-width: 1; }
+  </style>
+
+  <!-- Définition de la flèche pour le vecteur -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8b5cf6" />
+    </marker>
+  </defs>
+
+  <!-- Fond -->
+  <rect width="100%" height="100%" fill="#f9fafb" />
+
+  <!-- TITRE GLOBAL -->
+  <text x="450" y="30" text-anchor="middle" class="title">Relation Position, Vitesse, Accélération et Vecteur 3D</text>
+
+  <!-- GRAPHIQUE 1 : POSITION x(t) -->
+  <!-- Décalage gauche à 100px pour le texte -->
+  <text x="100" y="70" class="title">1. Position x(t)</text>
+  <line x1="100" y1="220" x2="800" y2="220" class="axis" /> <!-- Axe Temps -->
+  <line x1="100" y1="220" x2="100" y2="50" class="axis" /> <!-- Axe Position -->
+  <text x="790" y="240" class="axis-label" text-anchor="end">Temps (t)</text>
+  <text x="80" y="135" class="axis-label" text-anchor="end" transform="rotate(-90, 80, 135)">Position (x)</text>
+
+  <!-- Courbe : Linéaire -> Courbe -> Plat -->
+  <path d="M100,220 L300,120 Q400,80 500,70 L700,70" class="curve-pos" />
+  
+  <!-- Point Max sur graphe 1 -->
+  <circle cx="500" cy="70" r="6" class="point-marker" />
+  <text x="510" y="60" class="label" fill="#dc2626">Max (v=0)</text>
+
+  <!-- GRAPHIQUE 2 : VITESSE v(t) -->
+  <text x="100" y="290" class="title">2. Vitesse v(t) = dx/dt</text>
+  <line x1="100" y1="440" x2="800" y2="440" class="axis" />
+  <line x1="100" y1="440" x2="100" y2="270" class="axis" />
+  <text x="790" y="460" class="axis-label" text-anchor="end">Temps (t)</text>
+  <text x="80" y="355" class="axis-label" text-anchor="end" transform="rotate(-90, 80, 355)">Vitesse (v)</text>
+  <line x1="100" y1="355" x2="800" y2="355" stroke="#ccc" stroke-dasharray="4" /> <!-- Axe v=0 -->
+
+  <!-- Courbe Vitesse : Constante -> Décroissance linéaire -> Nulle -->
+  <path d="M100,300 L300,300 L500,355 L700,355" class="curve-vel" />
+  
+  <!-- Points clés sur graphe 2 (Changements de pente) -->
+  <!-- Point A : Début de la décélération (correspond au début de la courbure de x) -->
+  <circle cx="300" cy="300" r="5" class="point-marker" />
+  <text x="310" y="290" class="label" font-size="11px">a</text>
+  
+  <!-- Point B : Fin de la décélération (vitesse nulle, correspond au max de x) -->
+  <circle cx="500" cy="355" r="5" class="point-marker" />
+  <text x="510" y="375" class="label" font-size="11px">a</text>
+  
+  <text x="510" y="345" class="label" fill="#16a34a" font-size="12px">Vitesse nulle</text>
+
+  <!-- GRAPHIQUE 3 : ACCÉLÉRATION a(t) -->
+  <text x="100" y="510" class="title">3. Accélération a(t) = dv/dt</text>
+  <line x1="100" y1="660" x2="800" y2="660" class="axis" />
+  <line x1="100" y1="660" x2="100" y2="490" class="axis" />
+  <text x="790" y="680" class="axis-label" text-anchor="end">Temps (t)</text>
+  <text x="80" y="575" class="axis-label" text-anchor="end" transform="rotate(-90, 80, 575)">Accélération (a)</text>
+  <line x1="100" y1="575" x2="800" y2="575" stroke="#ccc" stroke-dasharray="4" /> <!-- Axe a=0 -->
+
+  <!-- Courbe Accélération : Nulle -> Constante Négative -> Nulle -->
+  <!-- Segment 1 : Nul -->
+  <line x1="100" y1="575" x2="300" y2="575" class="curve-acc" />
+  <!-- Segment 2 : Constant négatif (saut puis plat) -->
+  <line x1="300" y1="630" x2="500" y2="630" class="curve-acc" />
+  <!-- Segment 3 : Nul -->
+  <line x1="500" y1="575" x2="700" y2="575" class="curve-acc" />
+  
+  <!-- Lignes de saut (discontinuités théoriques) -->
+  <line x1="300" y1="575" x2="300" y2="630" stroke="#dc2626" stroke-width="2" stroke-dasharray="4" />
+  <line x1="500" y1="630" x2="500" y2="575" stroke="#dc2626" stroke-width="2" stroke-dasharray="4" />
+
+  <!-- Points clés sur graphe 3 (Début et fin de l'impulsion) -->
+  <circle cx="300" cy="630" r="5" class="point-marker" />
+  <text x="310" y="650" class="label" font-size="11px">a</text>
+  
+  <circle cx="500" cy="630" r="5" class="point-marker" />
+  <text x="510" y="650" class="label" font-size="11px">a</text>
+
+  <!-- ZONE 4 : VECTEUR 3D -->
+  <text x="450" y="700" text-anchor="middle" class="title">4. Vecteur Accélération 3D (&#9724;)</text>
+  
+  <g transform="translate(450, 820)">
+    <!-- Axes 3D -->
+    <line x1="0" y1="0" x2="-60" y2="30" stroke="#999" stroke-width="2" />
+    <line x1="0" y1="0" x2="60" y2="30" stroke="#999" stroke-width="2" />
+    <line x1="0" y1="0" x2="0" y2="-80" stroke="#999" stroke-width="2" />
+    
+    <text x="-70" y="40" class="axis-label">X</text>
+    <text x="70" y="40" class="axis-label">Y</text>
+    <text x="10" y="-90" class="axis-label">Z</text>
+
+    <!-- Vecteur -->
+    <line x1="0" y1="0" x2="40" y2="50" class="vector-line" />
+    <text x="50" y="60" class="vector-label">a&#9724;</text>
+    
+    <!-- Projections -->
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="2" opacity="0.5"/>
+    <line x1="40" y1="0" x2="40" y2="50" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="2" opacity="0.5"/>
+  </g>
+
+  <!-- LÉGENDE (Cadre élargi et texte ajusté) -->
+  <rect x="47" y="740" width="220" height="180" fill="#fff" stroke="#ddd" stroke-width="2" rx="5" />
+  <text x="60" y="735" class="label" font-weight="bold" font-size="14px">Légende :</text>
+  
+  <text x="60" y="760" class="label" font-size="12px">• Pente constante (x)</text>
+  <text x="70" y="778" class="label" font-size="12px" fill="#555">⇒ Vitesse constante</text>
+  
+  <text x="60" y="800" class="label" font-size="12px">• Point maximum (x)</text>
+  <text x="70" y="818" class="label" font-size="12px" fill="#555">⇒ Vitesse = 0</text>
+  
+  <text x="60" y="840" class="label" font-size="12px">• Changement de pente</text>
+  <text x="70" y="858" class="label" font-size="12px" fill="#555">⇒ Accélération ≠ 0</text>
+  
+  <text x="60" y="880" class="label" font-size="12px">• Points 'a' rouges</text>
+  <text x="70" y="898" class="label" font-size="12px" fill="#555">⇒ Instants de variation</text>
+
+</svg>

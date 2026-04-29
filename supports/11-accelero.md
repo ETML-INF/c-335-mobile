@@ -13,6 +13,11 @@
 
 Les valeurs sont exprimées en G (9,81 m/s²).
 
+### Rappel mathématique
+![accelero-math](assets/accelerometer-diagram.svg)
+
+Pour le calcul de la norme du vecteur ("taille"), on peut utiliser pythagore...
+
 ## 1. Exemple basique (sans MVVM)
 
 ### XAML (vue)
