@@ -2,7 +2,7 @@
 
 ## Théorie
 
-.NET MAUI offre une API unifiée pour accéder aux capteurs de l'appareil, dont l'accéléromètre, via l'espace de noms
+.NET MAUI offre une API unifiée pour accéder aapteurs de l'appareil, dont l'accéléromètre, via l'espace de noms
 `Microsoft.Maui.Devices.Sensors`. L'accéléromètre mesure l'accélération de l'appareil sur trois axes :
 
 - **X** : Accélération latérale (gauche/droite)
@@ -14,7 +14,7 @@
 Les valeurs sont exprimées en G (9,81 m/s²).
 
 ### Rappel mathématique
-![accelero-math](assets/accelerometer-diagram.svg)
+![accelero-math](11-accelero-math.svg)
 
 Pour le calcul de la norme du vecteur ("taille"), on peut utiliser pythagore...
 
