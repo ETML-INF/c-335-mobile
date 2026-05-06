@@ -15,6 +15,9 @@ en utilisant les animations...
 - [PPT Animation](../supports/10a-animation.pptx)
 - [PPT Accéléromètre](../supports/11-accelero.pptx)
 
+### Kahoot
+- [Accéléromètre](https://create.kahoot.it/share/ict-335-accelerometre/779a241d-27d5-4ce0-b893-e3126bddb07e)
+
 ## Référence
 - [MAUI.net >> animations](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/animation/basic)
 
