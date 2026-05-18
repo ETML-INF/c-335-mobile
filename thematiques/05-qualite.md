@@ -3,12 +3,18 @@ Et si on s'attardait à quelques détails...
 
 ## Théorie
 
+### Vidéo
+- [Amarsissage difficile...](https://eduvaud.sharepoint.com/:v:/r/sites/ETML_INF_MAITRES_Teams/Documents%20partages/General/Supports%20de%20cours/ICT/335-AppMobile/b-UnitesEnseignement/activite-01-moonlander1.mp4?csf=1&web=1&e=4DV2NK)
+
 ### Documentation
 [MAUI responsive](https://learn.microsoft.com/en-us/dotnet/maui/platform-integration/customize-ui-appearance?view=net-maui-9.0)
 
 ### Slides
-[Tests unitaires](https://eduvaud.sharepoint.com/:p:/s/msteams_d0db31/Eagbuu1WdjVNqR4o0ek-sq4Bw7hdjsUk1-FOI4XL1klcmg?e=sglVPb)
-[Responsive](https://eduvaud.sharepoint.com/:p:/s/msteams_d0db31/EUYjrGpa74VMuqksVhMIVHMByHmHul8lSSQBr88J8PE0MA?e=hRjlJ4)
+- [Tests unitaires](../supports/13-tests.pptx)
+- [Responsive](../supports/12-responsive.pptx)
 
 ### Plugin
 [OnScreenSizeMarkup](https://github.com/carolzbnbr/OnScreenSizeMarkup.Maui)
+
+## Activité
+- Voir ["sucreries"](../c:/ws/agroot/335/335-mobile-GIT/activites/qualite/activite-03-TestsFonctionnelsSucrerie.docx)
