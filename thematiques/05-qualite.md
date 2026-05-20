@@ -17,4 +17,4 @@ Et si on s'attardait à quelques détails...
 [OnScreenSizeMarkup](https://github.com/carolzbnbr/OnScreenSizeMarkup.Maui)
 
 ## Activité
-- Voir ["sucreries"](../c:/ws/agroot/335/335-mobile-GIT/activites/qualite/activite-03-TestsFonctionnelsSucrerie.docx)
+- Voir ["sucreries"](../activites/qualite/activite-03-TestsFonctionnelsSucrerie.docx)
