@@ -45,12 +45,6 @@ jobs:
       - name: Build with VitePress
         run: pnpm docs:build
 
-      - name: Generate pdfs
-        run: pnpm pdf:lin
-        env:
-          PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome
-        continue-on-error: true
-
       - name: Generate slides
         run: pnpm slidev:lin
         continue-on-error: true
