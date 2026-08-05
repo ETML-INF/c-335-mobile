@@ -116,6 +116,67 @@ La TabBar permet d'organiser le contenu en onglets accessibles depuis une barre 
 </Shell>
 ```
 
+## Déclarer des routes
+
+Une **route** est un identifiant (style URI) qui permet de naviguer vers une page sans connaître sa position dans la hiérarchie Shell. Il existe deux façons de déclarer une route :
+
+### 1. Route visible : attribut `Route` sur `ShellContent`
+
+Pour les pages présentes dans la structure Shell (onglets, flyout) :
+
+```xml
+<Shell ...>
+    <ShellContent
+        Title="Accueil"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="Profil"
+        ContentTemplate="{DataTemplate local:ProfilePage}"
+        Route="ProfilePage" />
+</Shell>
+```
+
+Navigation absolue vers ces routes (le `//` repart de la racine) :
+
+```csharp
+await Shell.Current.GoToAsync("//ProfilePage");
+```
+
+### 2. Route de détail : `Routing.RegisterRoute`
+
+Pour les pages *hors* de la structure Shell (détail, édition, page de jeu...), on enregistre la route en code, généralement dans le constructeur de `AppShell` :
+
+```csharp
+public AppShell()
+{
+    InitializeComponent();
+
+    Routing.RegisterRoute("details", typeof(DetailsPage));
+    Routing.RegisterRoute(nameof(EditPage), typeof(EditPage));
+}
+```
+
+Navigation relative (la page s'empile, le bouton retour la dépile) :
+
+```csharp
+await Shell.Current.GoToAsync("details");   // empile
+await Shell.Current.GoToAsync("..");        // dépile (retour)
+```
+
+### Page modale
+
+Une page modale force l'utilisateur à terminer (ou annuler) une tâche avant de revenir. Avec Shell, il suffit d'un attribut sur la page :
+
+```xml
+<ContentPage ...
+             Shell.PresentationMode="Modal"
+             Title="Paramètres">
+```
+
+La fermeture se fait comme un retour classique : `await Shell.Current.GoToAsync("..");`
+
 ## Navigation avec Shell
 
 ```csharp

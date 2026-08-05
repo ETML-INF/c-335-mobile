@@ -9,6 +9,46 @@ import {full as emoji} from 'markdown-it-emoji'
 
 process.env.VITE_EXTRA_EXTENSIONS = 'docx,zip,pptx'
 
+// Transforme les liens vers fil-rouge/<projet>/<ex> en composant <FilRougeLink> dynamique.
+// Le markdown reste navigable en dehors de VitePress (lien statique vers le fil rouge par défaut).
+// Limité aux thématiques : ailleurs (évaluation, activités), les liens vers un fil rouge précis restent statiques.
+function filRougeLinksPlugin(md) {
+    md.core.ruler.push('fil-rouge-links', (state) => {
+        if (!state.env?.relativePath?.startsWith('thematiques/')) return
+
+        for (const blockToken of state.tokens) {
+            if (blockToken.type !== 'inline' || !blockToken.children) continue
+
+            const children = blockToken.children
+            let i = 0
+            while (i < children.length) {
+                const token = children[i]
+                if (token.type !== 'link_open') { i++; continue }
+
+                const href = token.attrGet('href') ?? ''
+                const match = href.match(/fil-rouge\/[^/]+\/(.+)$/)
+                if (!match) { i++; continue }
+
+                const ex = match[1]
+
+                // Collecter le texte jusqu'à link_close
+                let label = ''
+                let j = i + 1
+                while (j < children.length && children[j].type !== 'link_close') {
+                    if (children[j].type === 'text') label += children[j].content
+                    j++
+                }
+                label = label || ex
+
+                // Remplacer link_open + contenu + link_close par le composant Vue
+                const component = new state.Token('html_inline', '', 0)
+                component.content = `<FilRougeLink ex="${ex}" label="${label.replace(/"/g, '&quot;')}" />`
+                children.splice(i, j - i + 1, component)
+            }
+        }
+    })
+}
+
 // https://vitepress.dev/reference/site-config
 export default withMermaid({
     lang: 'fr-CH',
@@ -50,6 +90,44 @@ export default withMermaid({
                                 text: `${path.basename(file).replace(".md", "")}`,
                                 link: `/${file}`
                             })).reverse()
+                },
+                {
+                    text: 'Fil rouge',
+                    collapsed:
+                        false,
+                    items: [
+                        {text: 'Choisir son projet', link: '/fil-rouge/README.md'},
+                        {
+                            text: 'Flashquizz',
+                            collapsed: true,
+                            items:
+                                glob.sync('fil-rouge/flashquizz/**/README.md', {posix: true})
+                                    .sort((a, b) => {
+                                        if (a.split('/')[2] === 'README.md') return -1
+                                        if (b.split('/')[2] === 'README.md') return 1
+                                        return a.localeCompare(b)
+                                    })
+                                    .map(file => ({
+                                        text: `${file.split("/")[2] === "README.md" ? "00-Présentation" : file.split("/")[2]}`,
+                                        link: `/${file}`
+                                    }))
+                        },
+                        {
+                            text: 'MyCoach',
+                            collapsed: true,
+                            items:
+                                glob.sync('fil-rouge/mycoach/**/README.md', {posix: true})
+                                    .sort((a, b) => {
+                                        if (a.split('/')[2] === 'README.md') return -1
+                                        if (b.split('/')[2] === 'README.md') return 1
+                                        return a.localeCompare(b)
+                                    })
+                                    .map(file => ({
+                                        text: `${file.split("/")[2] === "README.md" ? "00-Présentation" : file.split("/")[2]}`,
+                                        link: `/${file}`
+                                    }))
+                        }
+                    ]
                 }]
             , '/supports/': [
                 {
@@ -106,6 +184,7 @@ export default withMermaid({
             md
                 .use(taskLists)
                 .use(emoji)
+                .use(filRougeLinksPlugin)
         }
     },
     async buildEnd({srcDir: src, outDir: dest}) {

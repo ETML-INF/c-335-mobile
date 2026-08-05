@@ -108,3 +108,294 @@ public List<Deck> GetDecks()
 //Pour restaurer un deck, il suffit ensuite de modifier son attribut `IsDeleted`...
 ```
 </details>
+
+---
+
+# Fragments de référence
+
+Les sections suivantes présentent les briques génériques d'une application CRUD.
+Les exemples utilisent une entité neutre `Item` — à adapter à votre domaine (carte, exercice, ...).
+
+## Structurer un projet : Models / Services / Pages
+
+Un projet bien organisé est plus facile à maintenir et à faire évoluer :
+
+```
+MonProjet/
+  Models/      ← classes de données (ex: Item.cs)
+  Services/    ← accès aux données (ex: JsonDataService.cs)
+  Pages/       ← pages XAML + code-behind
+```
+
+### Le modèle
+
+```csharp
+namespace MonProjet.Models
+{
+    public class Item
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+
+        public override string ToString() => $"{Name} (#{Id})";
+    }
+}
+```
+
+> `ToString()` redéfini facilite le débogage (la version par défaut n'affiche que le nom de la classe).
+
+### La génération d'identifiants
+
+Au chargement, calculer le prochain identifiant disponible :
+
+```csharp
+if (_items.Any())
+{
+    _nextId = _items.Max(i => i.Id) + 1;
+}
+```
+
+## Persister en JSON
+
+Un service dédié centralise lecture et écriture du fichier JSON dans le dossier de données de l'application :
+
+```csharp
+using System.Text.Json;
+
+public class JsonDataService
+{
+    private readonly string _filePath;
+
+    public JsonDataService()
+    {
+        _filePath = Path.Combine(FileSystem.AppDataDirectory, "items.json");
+    }
+
+    public async Task<List<Item>> LoadItemsAsync()
+    {
+        try
+        {
+            if (!File.Exists(_filePath))
+            {
+                return new List<Item>();
+            }
+
+            string json = await File.ReadAllTextAsync(_filePath);
+            List<Item>? items = JsonSerializer.Deserialize<List<Item>>(json);
+            return items ?? new List<Item>();
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error loading: {ex.Message}");
+            return new List<Item>();
+        }
+    }
+
+    public async Task SaveItemsAsync(List<Item> items)
+    {
+        try
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(items, options);
+            await File.WriteAllTextAsync(_filePath, json);
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error saving: {ex.Message}");
+        }
+    }
+}
+```
+
+Points clés :
+
+- **`FileSystem.AppDataDirectory`** : dossier de données propre à l'application
+- **`WriteIndented`** : JSON lisible par un humain (pratique pour le débogage)
+- **`async`/`await`** : l'accès disque peut être lent — l'asynchrone évite de bloquer l'interface
+- Le service **retourne une liste vide** en cas de fichier absent ou d'erreur
+
+## Afficher une collection avec CollectionView
+
+`CollectionView` est le composant moderne d'affichage de listes (`ListView` est déprécié).
+Le `DataTemplate` décrit l'apparence de **chaque** élément ; les `Binding` lient les propriétés du modèle :
+
+```xml
+<CollectionView x:Name="ItemsCollectionView" SelectionMode="None">
+    <CollectionView.ItemTemplate>
+        <DataTemplate>
+            <Border Margin="0,5" Padding="10">
+                <Grid ColumnDefinitions="*,Auto,Auto">
+                    <VerticalStackLayout Grid.Column="0">
+                        <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold" />
+                        <Label Text="{Binding CreatedDate, StringFormat='Créé le {0:dd/MM/yyyy}'}"
+                               FontSize="12" TextColor="Gray" />
+                    </VerticalStackLayout>
+
+                    <Button Grid.Column="1" Text="✏️" BackgroundColor="Transparent"
+                            Clicked="OnEditClicked" CommandParameter="{Binding .}" />
+                    <Button Grid.Column="2" Text="🗑️" BackgroundColor="Transparent"
+                            Clicked="OnDeleteClicked" CommandParameter="{Binding .}" />
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </CollectionView.ItemTemplate>
+
+    <!-- Affiché quand la liste est vide -->
+    <CollectionView.EmptyView>
+        <Label Text="Aucun élément — ajoutez-en un ci-dessus"
+               HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray" />
+    </CollectionView.EmptyView>
+</CollectionView>
+```
+
+- **`CommandParameter="{Binding .}"`** passe l'objet complet au gestionnaire d'évènement :
+
+```csharp
+private async void OnDeleteClicked(object sender, EventArgs e)
+{
+    Button? button = sender as Button;
+    Item? item = button?.CommandParameter as Item;
+    if (item == null) return;
+
+    bool confirm = await DisplayAlert("Confirmation",
+        $"Voulez-vous vraiment supprimer '{item.Name}' ?", "Supprimer", "Annuler");
+    if (!confirm) return;
+
+    _items.Remove(item);
+    await _dataService.SaveItemsAsync(_items);
+    RefreshView();
+}
+```
+
+- Une `List<T>` ne notifie **pas** la vue de ses changements : après chaque modification, forcer le rafraîchissement :
+
+```csharp
+private void RefreshView()
+{
+    ItemsCollectionView.ItemsSource = null;
+    ItemsCollectionView.ItemsSource = _items;
+}
+```
+
+> Alternative : `ObservableCollection<T>` notifie automatiquement les ajouts/suppressions
+> (mais pas les modifications de propriétés — il faudrait `INotifyPropertyChanged`).
+> Dans un contexte d'apprentissage, `List + RefreshView` montre explicitement quand et pourquoi on rafraîchit.
+
+## Formulaire et validation
+
+Pour l'ajout/édition, une **page dédiée** offre plus d'espace qu'un popup et une meilleure expérience :
+
+```xml
+<VerticalStackLayout Padding="20" Spacing="15">
+    <Label Text="Nom" FontAttributes="Bold" />
+    <Entry x:Name="NameEntry" Placeholder="Nom de l'élément" MaxLength="255" />
+
+    <Button Text="Sauvegarder" Clicked="OnSaveClicked" />
+    <Button Text="Annuler" Clicked="OnCancelClicked" />
+</VerticalStackLayout>
+```
+
+Toujours **valider avant de sauvegarder** :
+
+```csharp
+private async void OnSaveClicked(object sender, EventArgs e)
+{
+    string? name = NameEntry.Text?.Trim();
+
+    if (string.IsNullOrWhiteSpace(name))
+    {
+        await DisplayAlert("Erreur", "Le nom ne peut pas être vide", "OK");
+        return;
+    }
+
+    _item.Name = name;
+    await _dataService.SaveItemsAsync(_items);
+    await Shell.Current.GoToAsync("..");   // retour à la liste
+}
+```
+
+- **`MaxLength`** sur l'`Entry` limite la saisie côté interface
+- Pour une saisie rapide (un seul champ), `DisplayPromptAsync` est une alternative au formulaire :
+
+```csharp
+string? newName = await DisplayPromptAsync("Renommer", "Nouveau nom :",
+    initialValue: item.Name);
+```
+
+- Au retour sur la page liste, rafraîchir dans `OnAppearing` :
+
+```csharp
+protected override void OnAppearing()
+{
+    base.OnAppearing();
+    RefreshView();
+}
+```
+
+## Filtrer avec LINQ
+
+Le filtrage se fait **en mémoire** sur la liste déjà chargée, déclenché par l'évènement `TextChanged` d'une `Entry` de recherche.
+
+### Recherche simple
+
+```csharp
+// Le nom commence par le texte saisi
+_filtered = _items
+    .Where(i => i.Name.StartsWith(search, StringComparison.OrdinalIgnoreCase))
+    .ToList();
+
+// Le nom contient le texte saisi (n'importe où)
+_filtered = _items
+    .Where(i => i.Name.Contains(search, StringComparison.OrdinalIgnoreCase))
+    .ToList();
+```
+
+> `StartsWith`/`Contains` sont sensibles à la casse par défaut : toujours préciser
+> `StringComparison.OrdinalIgnoreCase`.
+
+### Multi-termes ET / OU
+
+```csharp
+if (search.Contains('|'))
+{
+    // Mode OU : au moins un des termes
+    string[] orTerms = search.Split('|', StringSplitOptions.RemoveEmptyEntries);
+    _filtered = _items
+        .Where(i => orTerms.Any(term =>
+            i.Name.Contains(term.Trim(), StringComparison.OrdinalIgnoreCase)))
+        .ToList();
+}
+else
+{
+    // Mode ET : tous les termes
+    string[] andTerms = search.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+    _filtered = _items
+        .Where(i => andTerms.All(term =>
+            i.Name.Contains(term, StringComparison.OrdinalIgnoreCase)))
+        .ToList();
+}
+```
+
+> Tester le `|` **avant** de découper sur les espaces, sinon `"math|histoire"` serait traité comme un seul terme.
+
+### Autocomplétion (principe)
+
+Proposer au maximum 5 suggestions pendant la saisie :
+
+```csharp
+List<Item> suggestions = _items
+    .Where(i => i.Name.Contains(search, StringComparison.OrdinalIgnoreCase))
+    .Take(5)
+    .ToList();
+```
+
+Côté interface : un panneau (`Border` + `CollectionView`) sous le champ de recherche, avec `ZIndex`
+pour flotter au-dessus de la liste, `IsVisible` piloté par la saisie, et `MaximumHeightRequest`
+pour limiter sa hauteur. Au clic sur une suggestion, remplir le champ et réappliquer le filtre.
+
+### Tri
+
+```csharp
+_filtered = _filtered.OrderBy(i => i.Name).ToList();
+```

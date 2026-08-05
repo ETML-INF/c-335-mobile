@@ -16,6 +16,4 @@ En lien avec la [théorie sur les évènements](../../supports/05a-evenement.md)
 
 ![teethmove.gif](teethmove.gif)
 
-## Pages statiques du storyboard
-Reprendre le storyboard FlashCard et implémenter un design correspondant (pas d’action, juste le design et laisser le menu pour après) :
-![screens.gif](screens.gif)
+> Les pages statiques de *votre* storyboard se réalisent dans la **mission 02** de votre fil rouge.

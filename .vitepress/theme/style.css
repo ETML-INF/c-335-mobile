@@ -1,0 +1,54 @@
+@media print {
+  /* Hide all VitePress chrome */
+  .VPNav,
+  .VPLocalNav,
+  .VPSidebar,
+  .VPDocAside,
+  .VPDocFooter,
+  .VPFooter,
+  .btn {
+    display: none !important;
+  }
+
+  /* Remove sidebar offset so content fills the page */
+  .VPDoc {
+    padding: 0 !important;
+  }
+
+  .VPDoc .container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .VPDoc .content {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .VPContent.has-sidebar {
+    padding-inline-start: 0 !important;
+  }
+
+  /* Basic typography for print */
+  @page {
+    size: A4 portrait;
+    margin: 20mm 15mm 25mm 15mm;
+  }
+
+  body {
+    color: #000;
+    background: #fff;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  pre, code {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+}

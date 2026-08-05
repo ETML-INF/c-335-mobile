@@ -11,12 +11,15 @@ hero:
       text: Thématiques
       link: /thematiques/README.html
     - theme: alt
+      text: Fil rouge
+      link: /fil-rouge/README.html
+    - theme: alt
       text: Évaluation
       link: /legal/evaluation.html
 
 features:
   - title: Projets
-    details: L’apprentissage au travers d’un projet concret
+    details: L’apprentissage au travers d’un projet fil rouge à choix — Flashquizz ou MyCoach
   - title: Langages
     details: C# (.NET)
   - title: Outils

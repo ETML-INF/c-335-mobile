@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="480" viewBox="0 0 260 480" font-family="sans-serif">
+  <rect x="2" y="2" width="256" height="476" rx="18" fill="#fff" stroke="#333" stroke-width="3"/>
+  <text x="20" y="38" font-size="16" font-weight="bold">IMC &amp; zones d'effort</text>
+  <g font-size="12" fill="#333">
+    <text x="20" y="70">Poids (kg)</text>
+    <text x="20" y="112">Taille (m)</text>
+    <text x="20" y="154">Âge</text>
+  </g>
+  <g fill="#fafafa" stroke="#bbb">
+    <rect x="110" y="54" width="130" height="26" rx="6"/>
+    <rect x="110" y="96" width="130" height="26" rx="6"/>
+    <rect x="110" y="138" width="130" height="26" rx="6"/>
+  </g>
+  <g font-size="12" fill="#333">
+    <text x="120" y="72">72</text>
+    <text x="120" y="114">1.78</text>
+    <text x="120" y="156">17</text>
+  </g>
+  <rect x="20" y="185" width="220" height="46" rx="10" fill="#3aa657"/>
+  <text x="34" y="205" font-size="13" fill="#fff">IMC : 22.7</text>
+  <text x="34" y="223" font-size="12" fill="#fff">Corpulence normale</text>
+  <text x="20" y="262" font-size="13" font-weight="bold" fill="#333">FC max : 203 bpm</text>
+  <g font-size="11" fill="#fff">
+    <rect x="20" y="275" width="220" height="34" rx="6" fill="#5dade2"/>
+    <text x="30" y="296" >Échauffement  50-60 %   102-122</text>
+    <rect x="20" y="313" width="220" height="34" rx="6" fill="#58d68d"/>
+    <text x="30" y="334">Endurance  60-70 %   122-142</text>
+    <rect x="20" y="351" width="220" height="34" rx="6" fill="#f5b041"/>
+    <text x="30" y="372">Aérobie  70-80 %   142-162</text>
+    <rect x="20" y="389" width="220" height="34" rx="6" fill="#e74c3c"/>
+    <text x="30" y="410">Intensif  80-90 %   162-183</text>
+  </g>
+</svg>

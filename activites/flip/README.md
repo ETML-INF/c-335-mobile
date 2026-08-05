@@ -2,8 +2,17 @@
 
 ![flip.gif](flip.gif)
 
-## Mission 1
-Suite à [l’exercice précédent](https://labs.section-inf.ch/codelabs/mobile-06-animation/index.html?index=..%2F..index#0) et en s’aidant de la [documentation](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/animation/basic), réaliser une animation similaire à celle présentée ci-dessus qui pourra être reprise pour FlashCard
+L'animation de retournement (flip) est au cœur du mode session des deux fils rouges : elle révèle le verso d'une carte (Flashquizz) ou la consigne d'un exercice (MyCoach).
 
-## Mission 2
-Intégrer cette animation dans le projet
+## À faire
+
+Cette animation se réalise dans la **mission 04** de votre projet fil rouge :
+
+- [Mission 04 — Flashquizz](../../fil-rouge/flashquizz/04-interaction/README.md)
+- [Mission 04 — MyCoach](../../fil-rouge/mycoach/04-interaction/README.md)
+
+## Théorie
+
+- [Les 4 animations de base](../../supports/10a-animation-cb.md#les-4-animations-de-base)
+- [Enchaîner et combiner des animations](../../supports/10a-animation-cb.md#enchainer-et-combiner-des-animations)
+- [Documentation officielle MAUI](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/animation/basic)

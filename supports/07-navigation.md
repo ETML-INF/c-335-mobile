@@ -76,6 +76,66 @@ public partial class DetailPage : ContentPage
 }
 ```
 
+## Passer des paramètres
+
+### IQueryAttributable — la méthode moderne
+
+L'interface `IQueryAttributable` est recommandée plutôt que `[QueryProperty]` : une seule méthode reçoit **tous** les paramètres, quel que soit leur nombre.
+
+```csharp
+public partial class DetailPage : ContentPage, IQueryAttributable
+{
+    private string _id = "";
+    private string _name = "";
+
+    public DetailPage()
+    {
+        InitializeComponent();
+    }
+
+    // Méthode obligatoire de IQueryAttributable
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+        if (query.TryGetValue("id", out var idObj))
+            _id = idObj?.ToString() ?? "";
+
+        if (query.TryGetValue("name", out var nameObj))
+            _name = nameObj?.ToString() ?? "";
+
+        // Mettre à jour l'UI avec les valeurs reçues...
+    }
+}
+```
+
+### Deux méthodes d'envoi : URL ou Dictionary
+
+**Méthode 1 — URL (style web)** : simple pour 1-3 paramètres, mais l'encodage des caractères spéciaux (accents, espaces) est manuel et tout devient `string` :
+
+```csharp
+await Shell.Current.GoToAsync(
+    $"detailpage?id={item.Id}&name={Uri.EscapeDataString(item.Name)}");
+```
+
+**Méthode 2 — Dictionary** : encodage automatique, supporte tous les types (int, bool, enum, objets) :
+
+```csharp
+var parameters = new Dictionary<string, object>
+{
+    {"id", item.Id},              // peut être un int
+    {"name", item.Name},          // accents gérés automatiquement
+    {"isEditMode", true}          // peut être un bool
+};
+
+await Shell.Current.GoToAsync("detailpage", parameters);
+```
+
+| Critère | URL | Dictionary |
+|---|---|---|
+| Encodage des caractères spéciaux | manuel (`Uri.EscapeDataString`) | automatique |
+| Types supportés | `string` uniquement | tous |
+| Lisibilité avec beaucoup de paramètres | faible | bonne |
+| Recommandé pour | 1-3 paramètres simples | le reste |
+
 ## 3. Navigation modale (Push)
 
 ```csharp

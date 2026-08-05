@@ -547,6 +547,73 @@ public partial class ShakeDetectionPage : ContentPage
 ```
 
 
+## Détecter une secousse (shake)
+
+L'essentiel à retenir : MAUI intègre la détection de secousses nativement via l'évènement `ShakeDetected` — pas besoin de calculer soi-même des seuils sur les données brutes.
+
+```csharp
+// Activation
+if (Accelerometer.Default.IsSupported)
+{
+    Accelerometer.Default.ShakeDetected += OnShakeDetected;
+    Accelerometer.Default.Start(SensorSpeed.Game);
+}
+
+// Réaction
+private void OnShakeDetected(object sender, EventArgs e)
+{
+    // Les évènements capteur arrivent sur un thread secondaire :
+    // toute mise à jour de l'UI doit repasser par le thread principal !
+    MainThread.BeginInvokeOnMainThread(() =>
+    {
+        // ... mettre à jour l'interface ...
+    });
+}
+```
+
+> **Piège classique** : oublier `MainThread.BeginInvokeOnMainThread` provoque un crash ou une UI qui ne se met pas à jour.
+
+### Simuler une secousse sur l'émulateur
+
+```shell
+adb emu sensor set acceleration 100:100:100 && timeout 1 > NUL && adb emu sensor set acceleration 0:0:0
+```
+
+> Avec l'émulateur maison, `adb.exe` est dans le dossier `sdk\platform-tools`. On peut aussi utiliser les capteurs virtuels des outils avancés de l'émulateur.
+
+## Cycle de vie d'un capteur
+
+Un capteur actif **consomme de la batterie**. Les règles :
+
+1. **Vérifier la disponibilité** avant tout : `Accelerometer.Default.IsSupported`
+2. **Ne pas démarrer deux fois** : tester `Accelerometer.Default.IsMonitoring`
+3. **S'abonner avant de démarrer, se désabonner après avoir arrêté** :
+
+```csharp
+// Démarrage
+Accelerometer.Default.ShakeDetected += OnShakeDetected;
+Accelerometer.Default.Start(SensorSpeed.Default);
+
+// Arrêt
+Accelerometer.Default.Stop();
+Accelerometer.Default.ShakeDetected -= OnShakeDetected;
+```
+
+4. **Arrêter le capteur quand la page disparaît** — sinon il continue de tourner (et de consommer) même hors de l'écran concerné :
+
+```csharp
+protected override void OnDisappearing()
+{
+    base.OnDisappearing();
+
+    if (Accelerometer.Default.IsMonitoring)
+    {
+        Accelerometer.Default.Stop();
+        Accelerometer.Default.ShakeDetected -= OnShakeDetected;
+    }
+}
+```
+
 ## Conseils et meilleures pratiques
 
 1. **Performances** : Choisissez la fréquence d'échantillonnage appropriée avec `SensorSpeed` :

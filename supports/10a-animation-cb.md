@@ -221,6 +221,68 @@ Dans cet exemple, nous avons implémenté deux types d'animations :
     - Les boutons "<<" et ">>" déplacent le BoxView vers la gauche ou la droite.
     - L'animation utilise un effet d'élasticité (`Easing.SpringOut`) pour un rendu plus naturel.
 
+## Les 4 animations de base
+
+Chaque méthode anime une propriété visuelle vers une valeur cible, sur une durée en millisecondes :
+
+```csharp
+await box.RotateTo(360, 1000);        // rotation complète en 1 s
+await box.TranslateTo(100, 0, 500);   // déplacement de 100 px à droite
+await box.ScaleTo(1.5, 250);          // agrandissement de 50 %
+await box.FadeTo(0, 400);             // disparition progressive (opacité 0)
+```
+
+- Les valeurs sont **absolues** : `RotateTo(90)` va à 90°, pas +90°. Pour une rotation relative : `box.RotateTo(box.Rotation + 90, ...)`.
+- Un paramètre optionnel `Easing` adoucit le mouvement : `Easing.SpringOut`, `Easing.BounceIn`, ...
+- Pour réinitialiser : `box.Rotation = 0;`, `box.TranslationX = 0;`, etc. (sans animation).
+
+## Enchaîner et combiner des animations
+
+Les méthodes retournent des `Task` — c'est ce qui permet de les **séquencer** ou de les **paralléliser** :
+
+```csharp
+// Séquence : l'une après l'autre
+await box.ScaleTo(1.2, 150);
+await box.ScaleTo(1.0, 150);
+
+// Parallèle : en même temps
+await Task.WhenAll(
+    box.RotateTo(360, 500),
+    box.FadeTo(0.3, 500)
+);
+```
+
+### Boucle d'animation continue
+
+Pour une animation permanente (tant qu'un état est actif), lancer une tâche en arrière-plan :
+
+```csharp
+private bool _isRotating = false;
+
+private async void StartRotationLoop()
+{
+    while (true)
+    {
+        if (_isRotating)
+        {
+            await box.RotateTo(box.Rotation + 90, 250);
+        }
+        await Task.Delay(50);   // évite de saturer le thread UI
+    }
+}
+```
+
+### Effet « flip » (retournement de carte)
+
+Un retournement se décompose en deux demi-rotations sur l'axe Y, avec changement de contenu au milieu (quand la carte est de profil, invisible) :
+
+```csharp
+await card.RotateYTo(90, 200);    // 1re moitié : la carte devient invisible
+// ... changer le contenu affiché ici ...
+card.RotationY = -90;             // se placer de l'autre côté
+await card.RotateYTo(0, 200);     // 2e moitié : révéler la nouvelle face
+```
+
 ## Résumé des concepts clés
 
 

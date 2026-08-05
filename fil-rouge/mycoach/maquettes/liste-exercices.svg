@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="480" viewBox="0 0 260 480" font-family="sans-serif">
+  <rect x="2" y="2" width="256" height="476" rx="18" fill="#fff" stroke="#333" stroke-width="3"/>
+  <text x="20" y="40" font-size="16" font-weight="bold">Mes exercices</text>
+  <rect x="200" y="22" width="36" height="26" rx="6" fill="#4a90d9"/>
+  <text x="212" y="41" font-size="16" fill="#fff">+</text>
+  <rect x="18" y="58" width="224" height="30" rx="8" fill="#f0f0f0" stroke="#bbb"/>
+  <text x="30" y="78" font-size="12" fill="#888">Rechercher...</text>
+  <g stroke="#bbb" fill="#fafafa">
+    <rect x="18" y="100" width="224" height="52" rx="8"/>
+    <rect x="18" y="160" width="224" height="52" rx="8"/>
+    <rect x="18" y="220" width="224" height="52" rx="8"/>
+  </g>
+  <g font-size="13" fill="#333">
+    <text x="30" y="124">Pompes</text>
+    <text x="30" y="184">Squats</text>
+    <text x="30" y="244">Gainage</text>
+  </g>
+  <g font-size="12" fill="#666">
+    <text x="190" y="130">&#9998;  &#128465;</text>
+    <text x="190" y="190">&#9998;  &#128465;</text>
+    <text x="190" y="250">&#9998;  &#128465;</text>
+  </g>
+  <rect x="18" y="420" width="224" height="38" rx="10" fill="#3aa657"/>
+  <text x="70" y="444" font-size="14" fill="#fff">Démarrer la séance</text>
+</svg>

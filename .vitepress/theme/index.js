@@ -2,6 +2,9 @@
 import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import PdfDownload from './PdfDownload.vue'
+import './style.css'
+import FilRougeChooser from './FilRougeChooser.vue'
+import FilRougeLink from './FilRougeLink.vue'
 
 export default {
   extends: DefaultTheme,
@@ -10,6 +13,10 @@ export default {
       'aside-outline-before': () => h(PdfDownload),
       'doc-footer-before': () => h(PdfDownload)
     })
+  },
+  enhanceApp({ app }) {
+    app.component('FilRougeChooser', FilRougeChooser)
+    app.component('FilRougeLink', FilRougeLink)
   }
   // override the Layout with a wrapper component that
   // injects the slots
