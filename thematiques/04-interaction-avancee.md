@@ -39,4 +39,4 @@ et ce que le cahier des charges du fil rouge exige.
 
 ### Missions fil rouge
 
-- [ ] [Mission 04 : Mode session](../fil-rouge/flashquizz/04-interaction/README.md)
+- [ ] [Mission 04 : Mode session](/fil-rouge/missions/04-interaction)

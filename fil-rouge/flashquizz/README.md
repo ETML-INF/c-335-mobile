@@ -5,7 +5,7 @@ et un mode d'apprentissage qui aide réellement à mémoriser.
 
 ## Cahier des charges
 
-- [CDC Flashquizz](cdc.md) — les exigences complètes du projet
+- [CDC Flashquizz](/fil-rouge/missions/00-cdc) — les exigences complètes du projet
 - [Grille d'évaluation](../../legal/evaluation.md) — commune aux deux fils rouges
 
 ## Missions

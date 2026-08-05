@@ -52,5 +52,5 @@ Dans vos notes personnelles (mission 01) : une demi-page sur le **modèle écono
 
 ## 5. Livrables et évaluation
 
-- Storyboard PDF, code source, PDF des 3 scénarios de test, notes personnelles, vidéo de 30 s sur téléphone réel — voir [les livrables communs](../../README.md).
-- Évaluation selon la [grille commune](../../../legal/evaluation.md).
+- Storyboard PDF, code source, PDF des 3 scénarios de test, notes personnelles, vidéo de 30 s sur téléphone réel — voir [les livrables communs](/fil-rouge/README).
+- Évaluation selon la [grille commune](/legal/evaluation).

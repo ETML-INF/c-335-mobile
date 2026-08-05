@@ -1,4 +1,4 @@
-1. Lire attentivement le [CDC MyCoach](../../cdc.md) — chaque exigence doit apparaître quelque part dans votre storyboard.
+1. Lire attentivement le [CDC MyCoach](/fil-rouge/missions/00-cdc) — chaque exigence doit apparaître quelque part dans votre storyboard.
 2. Maquetter **tous les écrans** de l'application : gestion des exercices (liste, ajout/édition), mode séance (nom, consigne), résumé de séance, écran IMC & zones.
 3. Représenter la **navigation** : quelles actions mènent d'un écran à l'autre (flèches annotées).
 4. Représenter les **actions** sur chaque écran : boutons, tap sur l'exercice, secousse du téléphone.

@@ -6,8 +6,7 @@
 
 Développement pas à pas d'une application mobile complète, selon l'un des deux cahiers des charges :
 
-- [CDC Flashquizz](../fil-rouge/flashquizz/cdc.md) — application de cartes mémoire (flashcards)
-- [CDC MyCoach](../fil-rouge/mycoach/cdc.md) — coach sportif (exercices, séances, IMC)
+- [CDC Flashquizz & MyCoach](../fil-rouge/missions/00-cdc.md) — cahier des charges du projet choisi
 
 Les deux projets partagent les **mêmes mécaniques imposées** (voir [le fil rouge](../fil-rouge/README.md)) : la grille ci-dessous s'applique à l'identique quel que soit le choix.
 

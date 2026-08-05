@@ -8,8 +8,7 @@ L'animation de retournement (flip) est au cœur du mode session des deux fils ro
 
 Cette animation se réalise dans la **mission 04** de votre projet fil rouge :
 
-- [Mission 04 — Flashquizz](../../fil-rouge/flashquizz/04-interaction/README.md)
-- [Mission 04 — MyCoach](../../fil-rouge/mycoach/04-interaction/README.md)
+- [Mission 04 — Mode session](/fil-rouge/missions/04-interaction)
 
 ## Théorie
 

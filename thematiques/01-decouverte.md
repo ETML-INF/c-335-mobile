@@ -34,7 +34,7 @@ la première étape de tout projet professionnel : la maquette (storyboard) de v
 
 <FilRougeStatus />
 
-- [ ] [Mission 01 : Storyboard](../fil-rouge/flashquizz/01-storyboard/README.md)
+- [ ] [Mission 01 : Storyboard](/fil-rouge/missions/01-storyboard)
 
 ### Activités optionnelles
 

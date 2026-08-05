@@ -5,7 +5,7 @@ calculer son **IMC et ses zones d'effort** — et garder un œil critique sur l'
 
 ## Cahier des charges
 
-- [CDC MyCoach](cdc.md) — les exigences complètes du projet
+- [CDC MyCoach](/fil-rouge/missions/00-cdc) — les exigences complètes du projet
 - [Grille d'évaluation](../../legal/evaluation.md) — commune aux deux fils rouges
 
 ## Missions

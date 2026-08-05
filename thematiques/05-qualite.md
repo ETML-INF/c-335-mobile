@@ -33,7 +33,7 @@ téléphone ? Cette thématique aborde deux piliers de la qualité logicielle : 
 
 ## Missions fil rouge
 
-- [ ] [Mission 05 : Qualité](../fil-rouge/flashquizz/05-qualite/README.md)
+- [ ] [Mission 05 : Qualité](/fil-rouge/missions/05-qualite)
 
 ### Activités optionnelles
 

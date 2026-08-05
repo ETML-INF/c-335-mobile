@@ -37,7 +37,7 @@ et les faire survivre au redémarrage de l'application grâce à la persistance 
 
 ### Missions fil rouge
 
-- [ ] [Mission 03 : CRUD](../fil-rouge/flashquizz/03-crud/README.md)
+- [ ] [Mission 03 : CRUD](/fil-rouge/missions/03-crud)
 
 ### Bug du scroll d'une collectionView
 - Avec MAUI8, il fallait ajouter "FillAndExpand" et avec MAUI9+, il faut définir un "HeightRequest" dans le composant "CollectionView".

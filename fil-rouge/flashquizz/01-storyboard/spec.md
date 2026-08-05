@@ -1,4 +1,4 @@
-1. Lire attentivement le [CDC Flashquizz](../../cdc.md) — chaque exigence doit apparaître quelque part dans votre storyboard.
+1. Lire attentivement le [CDC Flashquizz](/fil-rouge/missions/00-cdc) — chaque exigence doit apparaître quelque part dans votre storyboard.
 2. Maquetter **tous les écrans** de l'application : gestion des cartes (liste, ajout/édition), mode d'apprentissage (recto, verso), résumé de session.
 3. Représenter la **navigation** : quelles actions mènent d'un écran à l'autre (flèches annotées).
 4. Représenter les **actions** sur chaque écran : boutons, tap sur la carte, secousse du téléphone.

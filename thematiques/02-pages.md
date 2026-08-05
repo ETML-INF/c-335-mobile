@@ -41,7 +41,7 @@ reliée aux autres par la navigation Shell.
 
 ### Missions fil rouge
 
-- [ ] [Mission 02 : Pages et navigation](../fil-rouge/flashquizz/02-pages/README.md)
+- [ ] [Mission 02 : Pages et navigation](/fil-rouge/missions/02-pages)
 
 ### Activités optionnelles
 

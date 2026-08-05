@@ -24,7 +24,6 @@ ainsi que réfléchir à différents détails (idéalement avec le client)...
 
 Le storyboard de votre projet fil rouge est la **mission 01** :
 
-- [Mission 01 — Flashquizz](../../fil-rouge/flashquizz/01-storyboard/README.md)
-- [Mission 01 — MyCoach](../../fil-rouge/mycoach/01-storyboard/README.md)
+- [Mission 01 — Storyboard](/fil-rouge/missions/01-storyboard)
 
 Pas encore choisi votre projet ? [Choisir son fil rouge](../../fil-rouge/README.md).
