@@ -1,5 +1,5 @@
 # Thématiques
-Directement en lien avec la [roadmap](https://roadmap.sh/r/c-335-mobile)
+Directement en lien avec la [carte du module](/#carte-du-module)
 
 Chaque thématique correspond à un domaine d’apprentissage avec
 des activités à réaliser et une **mission fil rouge** à livrer.

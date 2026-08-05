@@ -57,7 +57,7 @@ export default withMermaid({
                         {text: 'Choisir son projet', link: '/fil-rouge/README.md'},
                         {
                             text: 'Missions',
-                            collapsed: false,
+                            collapsed: true,
                             items: [
                                 {text: '00 — Cahier des charges', link: '/fil-rouge/missions/00-cdc'},
                                 {text: '01 — Storyboard',         link: '/fil-rouge/missions/01-storyboard'},
