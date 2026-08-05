@@ -1,0 +1,7 @@
+- [ ] L'ordre des exercices change d'une séance à l'autre
+- [ ] Tap sur le nom → animation flip → consigne
+- [ ] « Fait » passe à l'exercice suivant
+- [ ] Secouer le téléphone remet l'exercice dans la file (démontrable sur émulateur via adb)
+- [ ] Un exercice passé revient jusqu'à être fait ; la séance se termine bien
+- [ ] Quitter l'écran de séance arrête l'accéléromètre (démontrable dans le code)
+- [ ] L'écran IMC affiche l'IMC + catégorie colorée, la FC max et les 4 zones d'effort colorées

@@ -1,0 +1,1 @@
+- Le mode d'apprentissage se prête bien à une présentation **modale** : on termine ou on annule la session.

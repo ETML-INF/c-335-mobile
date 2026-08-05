@@ -1,0 +1,6 @@
+- [ ] L'ordre des cartes change d'une session à l'autre
+- [ ] Tap sur le recto → animation flip → verso
+- [ ] « Juste » passe à la carte suivante
+- [ ] Secouer le téléphone remet la carte dans la file (démontrable sur émulateur via adb)
+- [ ] Une carte ratée revient jusqu'à être connue ; la session se termine bien
+- [ ] Quitter l'écran de session arrête l'accéléromètre (démontrable dans le code)

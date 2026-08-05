@@ -1,0 +1,2 @@
+- [ ] La logique de session est dans des classes sans référence à l'UI
+- [ ] La liste des cartes s'adapte à un grand écran / au mode paysage

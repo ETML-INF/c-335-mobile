@@ -6,7 +6,7 @@ const DEFAULT = 'flashquizz'
 
 export const PROJECTS = {
   flashquizz: { name: 'Flashquizz', emoji: '🃏' },
-  mycoach: { name: 'MyCoach', emoji: '🏋️' },
+  mycoach:    { name: 'MyCoach',    emoji: '🏋️' },
 }
 
 export const filRouge = ref(DEFAULT)

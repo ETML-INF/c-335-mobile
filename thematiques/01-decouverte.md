@@ -32,7 +32,7 @@ la première étape de tout projet professionnel : la maquette (storyboard) de v
 
 ### Missions fil rouge
 
-> Si ce n'est pas déjà fait, [choisissir un fil rouge](../fil-rouge/README.md).
+<FilRougeStatus />
 
 - [ ] [Mission 01 : Storyboard](../fil-rouge/flashquizz/01-storyboard/README.md)
 

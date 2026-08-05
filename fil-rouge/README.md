@@ -5,9 +5,10 @@ C'est ce projet qui est évalué (voir [Évaluation](../legal/evaluation.md)).
 
 ## Choisir son projet
 
-Plusieurs cahier des charges sont proposés — **choisissez-en un** en début de cours et gardez-le jusqu'au bout :
+Plusieurs cahiers des charges sont proposés — **choisissez-en un** en début de cours et gardez-le jusqu'au bout.
+Pour lire le CDC complet d'un projet, sélectionnez-le ci-dessous puis consultez le [Cahier des charges](missions/00-cdc.md).
 
-|                  | [Flashquizz](flashquizz/README.md)                          | [MyCoach](mycoach/README.md)             |
+|                  | Flashquizz                                                  | MyCoach                                  |
 |------------------|-------------------------------------------------------------|------------------------------------------|
 | Thème            | Cartes de révision (simili [Quizlet](https://quizlet.com/)) | Coach sportif personnel                  |
 | Données gérées   | Cartes recto/verso                                          | Exercices physiques                      |
@@ -21,6 +22,10 @@ Plusieurs cahier des charges sont proposés — **choisissez-en un** en début d
 
 <FilRougeChooser />
 
+## Missions de votre projet
+
+<FilRougeSlot name="missions-table" />
+
 ## Mécaniques communes
 
 Quel que soit le choix, l'application devra démontrer les mêmes compétences techniques :
@@ -31,22 +36,6 @@ Quel que soit le choix, l'application devra démontrer les mêmes compétences t
 4. **Capteur** : une action de la session déclenchée en secouant le téléphone (shake)
 5. **Résumé de session** : statistiques calculées à la fin de chaque session
 6. **Qualité** : logique métier testée unitairement, interface adaptée aux tailles d'écran
-
-## Déroulement
-
-Chaque thématique du cours se conclut par une **mission** qui fait avancer le projet :
-
-| Mission                  | Thématique                                                      | Résultat                        |
-|--------------------------|-----------------------------------------------------------------|---------------------------------|
-| 01 — Storyboard          | [Découverte](../thematiques/01-decouverte.md)                   | Maquette PDF complète           |
-| 02 — Pages et navigation | [Pages](../thematiques/02-pages.md)                             | Squelette navigable de l'app    |
-| 03 — CRUD                | [CRUD](../thematiques/03-CRUD.md)                               | Gestion persistante des données |
-| 04 — Mode session        | [Interaction avancée](../thematiques/04-interaction-avancee.md) | Session avec animation et shake |
-| 05 — Qualité             | [Qualité](../thematiques/05-qualite.md)                         | Tests + responsive              |
-
-Chaque mission suit le même format : **Spec** (ce qu'il faut faire), **Maquette** (le résultat attendu),
-**Théorie utile** (les fragments de cours qui aident), **Indices** (les pièges connus) et
-**Validation** (la checklist à démontrer). Il n'y a pas de code à copier-coller : c'est *votre* code.
 
 ## Livrables finaux
 

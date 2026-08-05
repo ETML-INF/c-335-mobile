@@ -1,0 +1,4 @@
+- [ ] Ajout d'une carte avec validation (vide et > 255 refusés avec message)
+- [ ] Liste affichée, y compris l'état « aucune carte »
+- [ ] Édition d'une carte existante fonctionnelle
+- [ ] Les cartes sont toujours là après avoir tué et relancé l'app

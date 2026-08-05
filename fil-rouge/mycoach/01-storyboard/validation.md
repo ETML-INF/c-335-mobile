@@ -1,0 +1,2 @@
+- [ ] La demi-page « économie des apps fitness » est rédigée
+- [ ] Vous pouvez « jouer » un scénario complet (créer un exercice → faire une séance → voir le résumé) en suivant votre storyboard du doigt

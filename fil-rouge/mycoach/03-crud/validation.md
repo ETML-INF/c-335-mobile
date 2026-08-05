@@ -1,0 +1,4 @@
+- [ ] Ajout d'un exercice avec validation (vide et > 255 refusés avec message)
+- [ ] Liste affichée, y compris l'état « aucun exercice »
+- [ ] Édition d'un exercice existant fonctionnelle
+- [ ] Les exercices sont toujours là après avoir tué et relancé l'app

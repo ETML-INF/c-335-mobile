@@ -1,0 +1,3 @@
+- Mélanger une liste : `cards.OrderBy(c => Random.Shared.Next()).ToList()` — ou un [Fisher-Yates](https://fr.wikipedia.org/wiki/M%C3%A9lange_de_Fisher-Yates) pour les puristes.
+- Une `Queue<Card>` modélise naturellement la file : `Dequeue()` pour la carte courante, `Enqueue()` pour remettre une carte ratée en fin de file.
+- Comptez les erreurs **par carte** (dictionnaire id → nombre de ratés) : le résumé en découle directement.

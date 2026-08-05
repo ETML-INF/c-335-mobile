@@ -1,0 +1,3 @@
+- Pensez aux cas « vides » : à quoi ressemble la liste sans aucun exercice ? L'écran IMC avant toute saisie ?
+- Le mode séance a plusieurs états (nom affiché, consigne affichée, fin de séance) — un écran par état.
+- Ne maquettez pas le podomètre ou les programmes (optionnels) avant d'avoir couvert tout l'obligatoire.

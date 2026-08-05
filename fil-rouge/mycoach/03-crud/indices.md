@@ -1,0 +1,1 @@
+- `CommandParameter="{Binding .}"` passe l'exercice complet au gestionnaire du bouton ✏️/🗑️.

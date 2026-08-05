@@ -57,14 +57,14 @@ export default withMermaid({
     head: [
         ['link', {rel: "icon", href: "logo.svg"}],
     ],
-    srcExclude: ['slides/images/**','slides/*.md'],
+    srcExclude: ['slides/images/**', 'slides/*.md', 'fil-rouge/*/[0-9]*/*.md', 'fil-rouge/*/cdc.md', 'fil-rouge/*/missions-table.md'],
 
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         logo: 'logo.svg',
         nav: [
             {text: 'Accueil', link: '/'},
-            {text: 'Thématiques', link: '/thematiques/README.html'},
+            {text: 'Parcours du module', link: '/thematiques/README.html'},
             {text: 'Supports', link: '/supports/README.html'},
             //{text: 'Activités', link: '/activites/'}
         ],
@@ -81,9 +81,8 @@ export default withMermaid({
         sidebar: {
             '/': [
                 {
-                    text: 'Thématiques',
-                    collapsed:
-                        false,
+                    text: 'Parcours du module',
+                    collapsed: false,
                     items:
                         glob.sync('thematiques/**/*.md', {ignore: '*/**README.md', posix: true})
                             .map(file => ({
@@ -93,55 +92,37 @@ export default withMermaid({
                 },
                 {
                     text: 'Fil rouge',
-                    collapsed:
-                        false,
+                    collapsed: false,
                     items: [
                         {text: 'Choisir son projet', link: '/fil-rouge/README.md'},
                         {
-                            text: 'Flashquizz',
-                            collapsed: true,
-                            items:
-                                glob.sync('fil-rouge/flashquizz/**/README.md', {posix: true})
-                                    .sort((a, b) => {
-                                        if (a.split('/')[2] === 'README.md') return -1
-                                        if (b.split('/')[2] === 'README.md') return 1
-                                        return a.localeCompare(b)
-                                    })
-                                    .map(file => ({
-                                        text: `${file.split("/")[2] === "README.md" ? "00-Présentation" : file.split("/")[2]}`,
-                                        link: `/${file}`
-                                    }))
+                            text: 'Missions',
+                            collapsed: false,
+                            items: [
+                                {text: '00 — Cahier des charges', link: '/fil-rouge/missions/00-cdc'},
+                                {text: '01 — Storyboard',         link: '/fil-rouge/missions/01-storyboard'},
+                                {text: '02 — Pages et navigation',link: '/fil-rouge/missions/02-pages'},
+                                {text: '03 — CRUD',               link: '/fil-rouge/missions/03-crud'},
+                                {text: '04 — Mode session',       link: '/fil-rouge/missions/04-interaction'},
+                                {text: '05 — Qualité',            link: '/fil-rouge/missions/05-qualite'},
+                            ]
                         },
-                        {
-                            text: 'MyCoach',
-                            collapsed: true,
-                            items:
-                                glob.sync('fil-rouge/mycoach/**/README.md', {posix: true})
-                                    .sort((a, b) => {
-                                        if (a.split('/')[2] === 'README.md') return -1
-                                        if (b.split('/')[2] === 'README.md') return 1
-                                        return a.localeCompare(b)
-                                    })
-                                    .map(file => ({
-                                        text: `${file.split("/")[2] === "README.md" ? "00-Présentation" : file.split("/")[2]}`,
-                                        link: `/${file}`
-                                    }))
-                        }
                     ]
-                }]
-            , '/supports/': [
+                },
                 {
-                    text: 'Supports',
-                    collapsed:
-                        false,
+                    text: 'Supports de cours',
+                    collapsed: false,
                     items:
                         glob.sync('supports/**/*.md', {ignore: '*/**README.md', posix: true})
+                            .sort()
                             .map(file => ({
                                 text: `${path.basename(file).replace(".md", "")}`,
                                 link: `/${file}`
-                            })).reverse()
-                }]
-            , '/activites/': [
+                            }))
+                },
+                {text: 'Évaluation', link: '/legal/evaluation.md'}
+            ],
+            '/activites/': [
                 {
                     text: 'Activités',
                     collapsed:

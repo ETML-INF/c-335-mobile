@@ -1,0 +1,2 @@
+- Le mode séance se prête bien à une présentation **modale** : on termine ou on annule la séance.
+- Liste + IMC toujours accessibles ? Une `TabBar` Shell fait cela en quelques lignes.

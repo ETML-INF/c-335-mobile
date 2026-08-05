@@ -1,0 +1,1 @@
+- Si votre logique de séance est enfouie dans le code-behind, c'est le moment de la déplacer : une classe `TrainingSession` qui reçoit des exercices et expose `CurrentExercise`, `MarkDone()`, `MarkSkipped()`, `Summary` se teste sans émulateur.

@@ -1,0 +1,4 @@
+- Mélanger une liste : `exercises.OrderBy(e => Random.Shared.Next()).ToList()` — ou un [Fisher-Yates](https://fr.wikipedia.org/wiki/M%C3%A9lange_de_Fisher-Yates) pour les puristes.
+- Une `Queue<Exercise>` modélise naturellement la file : `Dequeue()` pour l'exercice courant, `Enqueue()` pour remettre un exercice passé en fin de file.
+- Comptez les « passés » **par exercice** (dictionnaire id → nombre) : le résumé en découle directement.
+- IMC = poids / (taille × taille) ; FC max = 220 − âge ; chaque zone = un pourcentage de la FC max — de purs calculs, parfaits pour la mission 05.

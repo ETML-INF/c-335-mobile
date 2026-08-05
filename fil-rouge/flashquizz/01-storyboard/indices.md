@@ -1,0 +1,3 @@
+- Pensez aux cas « vides » : à quoi ressemble la liste sans aucune carte ?
+- Le mode d'apprentissage a plusieurs états (recto affiché, verso affiché, fin de session) — un écran par état.
+- Ne maquettez pas des fonctionnalités optionnelles avant d'avoir couvert tout l'obligatoire.

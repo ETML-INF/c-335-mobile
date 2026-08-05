@@ -1,0 +1,1 @@
+- [ ] L'écran IMC est accessible depuis la structure Shell (onglet/menu)

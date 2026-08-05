@@ -1,0 +1,1 @@
+- [ ] Vous pouvez « jouer » un scénario complet (créer une carte → l'apprendre → voir le résumé) en suivant votre storyboard du doigt

@@ -59,6 +59,6 @@ Un ZIP contenant :
 
 ## Évaluation
 
-Voir la [grille d'évaluation](../../legal/evaluation.md), commune aux deux fils rouges.
+Voir la [grille d'évaluation](../../../legal/evaluation.md), commune aux deux fils rouges.
 
 > **Recours à l'IA** : tout usage d'outil d'intelligence artificielle (ex. ChatGPT) doit être mentionné et ne peut servir que d'inspiration. En cas d'abus, l'évaluation en tiendra compte.

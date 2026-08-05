@@ -1,0 +1,2 @@
+- [ ] La logique de séance est dans des classes sans référence à l'UI
+- [ ] La liste des exercices s'adapte à un grand écran / au mode paysage

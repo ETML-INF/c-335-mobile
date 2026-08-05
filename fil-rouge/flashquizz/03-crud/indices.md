@@ -1,0 +1,1 @@
+- `CommandParameter="{Binding .}"` passe la carte complète au gestionnaire du bouton ✏️/🗑️.

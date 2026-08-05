@@ -1,0 +1,1 @@
+- Si votre logique de session est enfouie dans le code-behind, c'est le moment de la déplacer : une classe `LearningSession` qui reçoit des cartes et expose `CurrentCard`, `MarkCorrect()`, `MarkWrong()`, `Summary` se teste sans émulateur.
